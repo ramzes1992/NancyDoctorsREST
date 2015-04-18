@@ -1,0 +1,33 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<NancyDoctorsREST.Models.DoctorModel>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <a href="/Doctors">BACK</a>
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <td>First Name:</td>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>@Model.City</td>
+        </tr>
+        <tr>
+            <td>Specialization:</td>
+            <td>@Model.Specialization</td>
+        </tr>
+    </table>
+    <a href="/">HOME</a>
+</body>
+</html>

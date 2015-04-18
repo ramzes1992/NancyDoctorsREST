@@ -1,0 +1,38 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<IEnumerable<NancyDoctorsREST.Models.DoctorModel>>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <table>
+                <tr>
+                    <th>First Name:</th>
+                    <th>Last Name:</th>
+                    <th>City:</th>
+                    <th>Specialization:</th>
+                    <th></th>
+                </tr>
+
+            @foreach (var doctor in Model)
+            {
+                var text = string.Format("{0} {1}, {2} - {3}", doctor.FirstName, doctor.LastName, doctor.City, doctor.Specialization);
+
+                <tr>
+                    <td>@doctor.FirstName</td>
+                    <td>@doctor.LastName</td>
+                    <td>@doctor.City</td>
+                    <td>@doctor.Specialization</td>
+                    <td><a href="/Doctor/@doctor.Id">Details</a></td>
+                </tr>                                
+            }
+        </table>
+
+        <a href="/">HOME</a>
+    </div>
+</body>
+</html>

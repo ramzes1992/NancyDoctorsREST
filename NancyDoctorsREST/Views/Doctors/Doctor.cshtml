@@ -28,6 +28,32 @@
             <td>@Model.Specialization</td>
         </tr>
     </table>
+    <br/>
+    <b>POSTS:</b>
+    <br/>
+    <div>
+        @foreach (var post in Model.Comments)
+        {
+            <b>@post.Author</b>
+            <br/>
+            @post.Content
+            <br />
+            <br />
+        }
+    </div>
+
+    <div>
+        <form id="commentForm" action="/Doctor/@(Model.Id)" method="post">
+            Author:<br />
+            <input type="text" name="Author"/>
+            <br />
+            Comment:<br />
+            <textarea form="commentForm" name="Contetn"></textarea>
+            <br />
+            <input type="submit" value="Add" />
+        </form>
+    </div>
+    <br/>
     <a href="/">HOME</a>
 </body>
 </html>

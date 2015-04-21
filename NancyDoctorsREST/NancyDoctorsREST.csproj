@@ -64,10 +64,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Modules\DoctorsModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
+    <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

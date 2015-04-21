@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NancyDoctorsREST.Modules;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,5 +17,7 @@ namespace NancyDoctorsREST.Models
         public string Specialization { get; set; }
 
         public string City { get; set; }
+
+        public List<CommentModel> Comments { get; set; }
     }
 }

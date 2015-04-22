@@ -4,7 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Xml;
+
 using System.Xml.Serialization;
+using System.Web.Script.Serialization;
+using System.Collections;
 
 namespace NancyDoctorsREST.Helpers
 {
@@ -12,7 +15,7 @@ namespace NancyDoctorsREST.Helpers
     {
         public static string ToJson(this object obj)
         {
-            return new Nancy.Json.JavaScriptSerializer().Serialize(obj);
+            return new JavaScriptSerializer().Serialize(obj);
         }
 
         public static string ToXml<T>(this T obj)

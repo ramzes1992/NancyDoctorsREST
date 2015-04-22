@@ -5,12 +5,11 @@ using System.Web;
 
 namespace NancyDoctorsREST.Models
 {
-    public class CommentModel
+    public class TimeSlot
     {
-        public string Author { get; set; }
-
+        public int Id { get; set; }
         public DateTime Date { get; set; }
+        public string Visitor { get; set; }
 
-        public string Content { get; set; }
     }
 }

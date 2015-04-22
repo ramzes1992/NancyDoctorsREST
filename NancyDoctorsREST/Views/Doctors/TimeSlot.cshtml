@@ -1,0 +1,23 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<NancyDoctorsREST.Models.TimeSlot>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <b>@Model.Date</b>
+        <br/>
+        <div>
+            <form id="timeSlotForm" action="/Doctor/@(ViewBag.DoctorId)/TimeSlot/@(Model.Id)" method="post">
+                Visitor Name:<br />
+                <input type="text" name="Visitor" />
+                <br />
+                <input type="submit" value="Book" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

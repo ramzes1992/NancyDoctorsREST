@@ -28,13 +28,30 @@
             <td>@Model.Specialization</td>
         </tr>
     </table>
+    <br />
+    <b>TIME SLOTS:</b>
+    <br />
+    <div>
+        @foreach (var timeslot in Model.TimeSlots)
+        {
+            if (string.IsNullOrEmpty(timeslot.Visitor))
+            {
+                <a href="/Doctor/@(Model.Id)/TimeSlot/@(timeslot.Id)"><b>@timeslot.Date</b></a>
+            }
+            else
+            {
+                <b>@timeslot.Date</b>
+            }
+            <br />
+        }
+    </div>
     <br/>
     <b>POSTS:</b>
     <br/>
     <div>
         @foreach (var post in Model.Comments)
         {
-            <b>@post.Author</b>
+            <b>@post.Author</b> @post.Date
             <br/>
             @post.Content
             <br />

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace NancyDoctorsREST.Models
 {
-    public class TimeSlot
+    public class TimeSlotModel
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NancyDoctorsREST", "NancyDo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRestClient", "ConsoleRestClient\ConsoleRestClient.csproj", "{E0FA154C-7B68-44A9-BFB0-ECAC6303A659}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NancyDoctorsModel", "NancyDoctorsModel\NancyDoctorsModel.csproj", "{FAF14B56-9BCE-47EF-888D-7A6ED3FEA982}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E0FA154C-7B68-44A9-BFB0-ECAC6303A659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0FA154C-7B68-44A9-BFB0-ECAC6303A659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0FA154C-7B68-44A9-BFB0-ECAC6303A659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF14B56-9BCE-47EF-888D-7A6ED3FEA982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF14B56-9BCE-47EF-888D-7A6ED3FEA982}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF14B56-9BCE-47EF-888D-7A6ED3FEA982}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF14B56-9BCE-47EF-888D-7A6ED3FEA982}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

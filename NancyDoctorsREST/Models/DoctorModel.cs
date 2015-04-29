@@ -20,6 +20,6 @@ namespace NancyDoctorsREST.Models
 
         public List<CommentModel> Comments { get; set; }
 
-        public List<TimeSlot> TimeSlots { get; set; }
+        public List<TimeSlotModel> TimeSlots { get; set; }
     }
 }

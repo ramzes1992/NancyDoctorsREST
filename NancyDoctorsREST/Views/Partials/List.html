@@ -1,0 +1,35 @@
+﻿<div>
+    <!--<a href="#/CreateDoctor">Add</a><br/>-->
+    <label>Filter:</label><input type="text" ng-model="filterText" />
+    <table class="sortable">
+        <tr>
+            <th>
+                <a href="" ng-click="order('FirstName')">First Name</a>
+                <span class="sortorder" ng-show="predicate === 'FirstName'" ng-class="{reverse:reverse}"></span>
+            </th>
+            <th>
+                <a href="" ng-click="order('LastName')">Last Name</a>
+                <span class="sortorder" ng-show="predicate === 'LastName'" ng-class="{reverse:reverse}"></span>
+            </th>
+            <th>
+                <a href="" ng-click="order('City')">City</a>
+                <span class="sortorder" ng-show="predicate === 'City'" ng-class="{reverse:reverse}"></span>
+            </th>
+            <th>
+                <a href="" ng-click="order('Specialization')">Specialization</a>
+                <span class="sortorder" ng-show="predicate === 'Specialization'" ng-class="{reverse:reverse}"></span>
+            </th>
+        </tr>
+
+        <tr ng-repeat="doctor in doctors | filter:filterText | orderBy:predicate:reverse">
+            <td>{{doctor.FirstName}}</td>
+            <td>{{doctor.LastName}}</td>
+            <td>{{doctor.City}}</td>
+            <td>{{doctor.Specialization}}</td>
+            <td>
+                <a href="#/Doctor/{{doctor.Id}}">Details</a>
+            </td>
+        </tr>
+
+    </table>
+</div>

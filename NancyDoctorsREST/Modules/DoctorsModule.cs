@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using NancyDoctorsREST.Helpers;
 using NancyDoctorsModel;
+using Nancy.Json;
 
 namespace NancyDoctorsREST.Modules
 {
@@ -97,16 +98,52 @@ namespace NancyDoctorsREST.Modules
             {
                 var id = param.Id;
 
-                var model = GetDoctorsModels().FirstOrDefault(d => d.Id.Equals(id));
+                var model = GetDoctorModel(id);
+
+                return new JavaScriptSerializer().Serialize(model);
+            };
+            Post["/DoctorJSON/{Id:int}"] = param => 
+            {
+                var form = this.Request.Form;
+
+                var model = GetDoctorsModels()
+                    .First(d => d.Id.Equals(param.Id));
+
+                _commentsRepository.Add(new Comment()
+                {
+                    DoctorId = model.Id,
+                    Author = form.Author,
+                    Date = DateTime.Now,
+                    Content = form.Content
+                });
+                _commentsRepository.Save();
+
+                return "OK!";
+            };
+            Get["/DoctorsJSON/{Specialization?All}"] =
+            Get["/DoctorsJSON/{Specialization?All}/{City?}"] = param =>
+            {
+                var model = GetDoctorsModels()
+                    .Where(d => (param.Specialization.Value.Equals("All")
+                             || d.Specialization.Equals(param.Specialization))
+                           && (!param.City.HasValue
+                             || d.City.Equals(param.City))).ToList();
 
                 return model.ToJson();
             };
-
-            Get["/DoctorsJSON"] = param =>
+            Get["/TimeSlotJSON/{id}"] = param =>
             {
-                var model = GetDoctorsModels();
+                var model = GetTimeSlotModel(param.Id);
+                return new JavaScriptSerializer().Serialize(model);
+            };
+            Post["/TimeSlotJSON/{id}"] = param =>
+            {
+                var form = this.Request.Form;
 
-                return model.ToJson();
+                _timeSlotsRepository.GetAll().First(t => t.Id.Equals(param.id)).Visitor = form.Visitor;
+                _timeSlotsRepository.Save();
+
+                return "OK!";
             };
             #endregion
 
@@ -153,7 +190,7 @@ namespace NancyDoctorsREST.Modules
 
         private DoctorModel GetDoctorModel(int id)
         {
-            var doctor =  _doctorsRepository.GetAll().First(d => d.Id.Equals(id));
+            var doctor = _doctorsRepository.GetAll().Single(d => d.Id.Equals(id));
             return new DoctorModel()
             {
                 Id = doctor.Id,
@@ -179,8 +216,8 @@ namespace NancyDoctorsREST.Modules
                 City = d.City,
                 //TimeSlots = ToTimeSlotsModels(_doctorsRepository.GetTimeSlots(d)).ToList(),
                 //Comments = ToCommentsModels(_doctorsRepository.GetComments(d)).ToList(),
-                TimeSlots = GetTimeSlotsModels(d.Id).ToList(),
-                Comments = GetCommentsModels(d.Id).ToList(),
+                //TimeSlots = GetTimeSlotsModels(d.Id).ToList(),
+                //Comments = GetCommentsModels(d.Id).ToList(),
             });
         }
 
@@ -205,6 +242,17 @@ namespace NancyDoctorsREST.Modules
             });
         }
 
+        private TimeSlotModel GetTimeSlotModel(int id)
+        {
+            return _timeSlotsRepository.GetAll().Select(t => new TimeSlotModel()
+            {
+                Id = t.Id,
+                Visitor = t.Visitor,
+                Date = t.Date,
+                DoctorId = t.DoctorId,
+            }).SingleOrDefault(t => t.Id.Equals(id));
+        }
+
         private IEnumerable<TimeSlotModel> GetTimeSlotsModels(int doctorId = -1)
         {
             if (doctorId >= 0)
@@ -212,18 +260,19 @@ namespace NancyDoctorsREST.Modules
                 return _timeSlotsRepository.GetAll()
                     .Where(ts => ts.DoctorId.Equals(doctorId))
                     .Select(t => new TimeSlotModel()
-                {
-                    Id = t.Id,
-                    Date = t.Date,
-                    Visitor = t.Visitor
-                }); ;
+                    {
+                        Id = t.Id,
+                        Date = t.Date,
+                        Visitor = t.Visitor,
+                        DoctorId = t.DoctorId,
+                    }); ;
             }
 
             return _timeSlotsRepository.GetAll().Select(t => new TimeSlotModel()
             {
                 Id = t.Id,
                 Date = t.Date,
-                Visitor = t.Visitor
+                Visitor = t.Visitor,
             });
         }
 

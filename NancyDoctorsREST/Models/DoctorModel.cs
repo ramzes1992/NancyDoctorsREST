@@ -21,5 +21,6 @@ namespace NancyDoctorsREST.Models
         public List<CommentModel> Comments { get; set; }
 
         public List<TimeSlotModel> TimeSlots { get; set; }
+
     }
 }

@@ -13,6 +13,8 @@ namespace NancyDoctorsREST.Models
 
         public DateTime Date { get; set; }
 
+        public string DateString { get { return Date.ToString(); } }
+
         public string Content { get; set; }
     }
 }

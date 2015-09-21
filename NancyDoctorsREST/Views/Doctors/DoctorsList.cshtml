@@ -6,10 +6,12 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
+    <script type="text/javascript" src="http://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
 </head>
 <body>
     <div>
-        <table>
+        <table class="sortable">
                 <tr>
                     <th>First Name:</th>
                     <th>Last Name:</th>
@@ -35,4 +37,19 @@
         <a href="/">HOME</a>
     </div>
 </body>
+<style>
+
+    /* Sortable tables */
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+    table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+    content: " \25B4\25BE" 
+}
+</style>
+
 </html>

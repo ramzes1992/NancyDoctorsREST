@@ -1,0 +1,30 @@
+﻿<div>
+    <a href="#/List">LIST</a>
+
+    <h1>{{doctor.FirstName}} {{doctor.LastName | uppercase}}</h1>
+
+    <h2>Slots</h2>
+    <ul>
+        <li ng-repeat="timeslot in doctor.TimeSlots">
+            <a ng-if="!timeslot.Visitor" href="#/TimeSlot/{{timeslot.Id}}">{{timeslot.DateString}}</a>
+            <b ng-if="timeslot.Visitor">{{timeslot.DateString}}</b>
+        </li>
+    </ul>
+
+    <h2>Comments:</h2> 
+    <ul>
+        <li ng-repeat="comment in doctor.Comments">
+            <b>{{comment.Author}}</b> {{comment.DateString}}
+            <br />
+            <p>{{comment.Content}}</p>
+        </li>
+    </ul>
+
+
+    <label>Author:</label><input type="text" ng-model="newComment.Author"/>
+    <br/>
+    <label>Content:</label><textarea type="textarea" ng-model="newComment.Content"/>
+    <br/>
+    <button ng-click="addComment()">Add Comment</button>
+
+</div>

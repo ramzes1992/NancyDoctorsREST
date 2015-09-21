@@ -1,0 +1,12 @@
+﻿<div>
+    <h1>{{timeslot.DateString}}</h1>
+    <br />
+    <div>
+        <form ng-submit="bookTimesSlot()">
+            Visitor Name:<br />
+            <input type="text" ng-model="timeslot.Visitor" />
+            <br />
+            <input type="submit" value="Book" />
+        </form>
+    </div>
+</div>

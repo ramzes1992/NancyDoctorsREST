@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,9 +70,18 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Partials\CreateDoctor.html" />
+    <Content Include="Views\Partials\DoctorDetails.html" />
+    <Content Include="Views\Partials\List.html" />
+    <Content Include="Views\Partials\TimeSlot.html" />
+    <Content Include="Views\Scripts\app.js" />
+    <Content Include="Views\Scripts\sorttable.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\TimeSlotModel.cs" />
@@ -98,6 +108,9 @@
       <Project>{faf14b56-9bce-47ef-888d-7a6ed3fea982}</Project>
       <Name>NancyDoctorsModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Static\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

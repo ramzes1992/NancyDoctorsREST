@@ -1,10 +1,27 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>Doctors</title>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.js"></script>
+    <script type="text/javascript" src="http://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+    <script src="Scripts/app.js"></script>
 </head>
-<body>
-    Hello World!
-    <a href="/Doctors">List</a>
+<body ng-app="DoctorsApp">
+    <ng-view></ng-view>
 </body>
+
+<style type="text/css">
+    .sortorder:after {
+        content: '\25b2';
+    }
+
+    .sortorder.reverse:after {
+        content: '\25bc';
+    }
+</style>
+
 </html>
+

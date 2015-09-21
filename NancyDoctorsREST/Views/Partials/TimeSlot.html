@@ -3,10 +3,11 @@
     <br />
     <div>
         <form ng-submit="bookTimesSlot()">
-            Visitor Name:<br />
-            <input type="text" ng-model="timeslot.Visitor" />
-            <br />
-            <input type="submit" value="Book" />
+            <div class="form-group">
+                <label>Visitor Name:</label>
+                <input type="text" ng-model="timeslot.Visitor" class="form-control" placeholder="Visitor Name..." />
+            </div>
+            <button type="submit" value="Book" class="btn btn-default">Book Now!</button>
         </form>
     </div>
 </div>

@@ -12,6 +12,7 @@ namespace NancyDoctorsREST
         protected override void ConfigureConventions(NancyConventions nancyConventions)
         {
             nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Scripts", @"Views/Scripts"));
+            nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("css", @"Views/Styles"));
             nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Partials", @"Views/Partials"));
             base.ConfigureConventions(nancyConventions);
         }

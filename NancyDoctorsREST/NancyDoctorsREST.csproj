@@ -75,9 +75,11 @@
     <Content Include="Views\Partials\List.html" />
     <Content Include="Views\Partials\TimeSlot.html" />
     <Content Include="Views\Scripts\app.js" />
+    <Content Include="Views\Scripts\bootstrap.js" />
     <Content Include="Views\Scripts\sorttable.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Styles\bootstrap.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

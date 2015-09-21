@@ -20,11 +20,14 @@
         </li>
     </ul>
 
-
-    <label>Author:</label><input type="text" ng-model="newComment.Author"/>
-    <br/>
-    <label>Content:</label><textarea type="textarea" ng-model="newComment.Content"/>
-    <br/>
-    <button ng-click="addComment()">Add Comment</button>
+    <div class="form-group">
+        <label >Author:</label>
+        <input type="text" class="form-control" placeholder="Your Name..." ng-model="newComment.Author">
+    </div>
+    <div class="form-group">
+        <label>Content:</label>
+        <textarea type="textarea" ng-model="newComment.Content" class="form-control" rows="3" placeholder="Text..."/>
+    </div>
+    <button ng-click="addComment()"  class="btn btn-default">Add Comment</button>
 
 </div>
